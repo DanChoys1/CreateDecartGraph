@@ -1,4 +1,4 @@
-﻿namespace CreateDecartGraph
+﻿namespace UI
 {
     partial class AboutProgram
     {
@@ -36,18 +36,19 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(12, 7);
+            this.label1.Location = new System.Drawing.Point(9, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(635, 160);
+            this.label1.Size = new System.Drawing.Size(476, 130);
             this.label1.TabIndex = 0;
             this.label1.Text = resources.GetString("label1.Text");
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(554, 200);
-            this.okButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.okButton.Location = new System.Drawing.Point(416, 162);
+            this.okButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(94, 23);
+            this.okButton.Size = new System.Drawing.Size(70, 19);
             this.okButton.TabIndex = 1;
             this.okButton.Text = "Ок";
             this.okButton.UseVisualStyleBackColor = true;
@@ -56,23 +57,23 @@
             // checkBox
             // 
             this.checkBox.AutoSize = true;
-            this.checkBox.Location = new System.Drawing.Point(357, 200);
-            this.checkBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBox.Location = new System.Drawing.Point(268, 162);
+            this.checkBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox.Name = "checkBox";
-            this.checkBox.Size = new System.Drawing.Size(178, 20);
+            this.checkBox.Size = new System.Drawing.Size(144, 17);
             this.checkBox.TabIndex = 2;
             this.checkBox.Text = "Больше не показывать";
             this.checkBox.UseVisualStyleBackColor = true;
             // 
             // AboutProgram
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 233);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(495, 189);
             this.Controls.Add(this.checkBox);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AboutProgram";

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CreateDecartGraph.Properties
+namespace UI.Properties
 {
 
 

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CreateDecartGraph
+namespace UI
 {
     public partial class AboutProgram : Form
     {

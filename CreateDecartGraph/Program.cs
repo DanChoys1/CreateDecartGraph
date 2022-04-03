@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI;
 
-namespace CreateDecartGraph
+namespace Main
 {
     internal static class Program
     {
@@ -20,3 +21,4 @@ namespace CreateDecartGraph
         }
     }
 }
+ 

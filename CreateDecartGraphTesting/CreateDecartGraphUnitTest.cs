@@ -1,21 +1,39 @@
-﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
-namespace Graphics
-{
-    public static class FoliumOfDescartes
-    {
-        public static PointF[] PointsArray(double a = 4, double xBorder = 10, double step = 0.001)
-        {
-            if (step <= 0)
-            {
-                throw new ArgumentException("Step cannot be less than or equal to zero.");
-            }
+using Graphics;
 
+namespace CreateDecartGraphTesting
+{
+    [TestClass]
+    public class CreateDecartGraphUnitTest
+    {
+        [TestMethod]
+        public void PointsArrayTest()
+        {
+            // Arrange
+            double a = 4;
+            double xBorder = 10;
+            double step = 0.001;
+
+            PointF[] correctPoints = CorrectPointsArrayForGraphicFoliumOfDescartes(a, xBorder, step);
+
+            // Act
+            PointF[] resultPoints = FoliumOfDescartes.PointsArray(a, xBorder, step);
+
+            // Assert
+            Assert.AreEqual(correctPoints.Length, resultPoints.Length);
+
+            for (int i = 0; i < resultPoints.Length; i++)
+            {
+                Assert.AreEqual(correctPoints[i], resultPoints[i]);
+            }
+        }
+
+        private static PointF[] CorrectPointsArrayForGraphicFoliumOfDescartes(double a = 4, double xBorder = 10, double step = 0.001)
+        {
             List<PointF> firstQuarterChart = new List<PointF>();
             List<PointF> secondQuarterChart = new List<PointF>();
             List<PointF> thirdQuarterChart = new List<PointF>();
@@ -38,10 +56,10 @@ namespace Graphics
                 {
                     firstQuarterChart.Add(new PointF(x, y));
                 }
-                else if(x <= 0 && y >= 0)
+                else if (x <= 0 && y >= 0)
                 {
                     secondQuarterChart.Add(new PointF(x, y));
-                }         
+                }
                 else if (x >= 0 && y <= 0)
                 {
                     fourthQuarterChart.Add(new PointF(x, y));

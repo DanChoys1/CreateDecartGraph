@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.32126.317
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateDecartGraph", "CreateDecartGraph\CreateDecartGraph.csproj", "{CED1E0D9-6FCE-4599-9F20-5C57497467D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateDecartGraphTesting", "CreateDecartGraphTesting\CreateDecartGraphTesting.csproj", "{53B12C6F-59F8-44B7-BC6E-9AFF41E27ADE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{CED1E0D9-6FCE-4599-9F20-5C57497467D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CED1E0D9-6FCE-4599-9F20-5C57497467D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CED1E0D9-6FCE-4599-9F20-5C57497467D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53B12C6F-59F8-44B7-BC6E-9AFF41E27ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53B12C6F-59F8-44B7-BC6E-9AFF41E27ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53B12C6F-59F8-44B7-BC6E-9AFF41E27ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53B12C6F-59F8-44B7-BC6E-9AFF41E27ADE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

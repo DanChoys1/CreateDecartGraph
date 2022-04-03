@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Graphics;
 
-
-namespace CreateDecartGraph
+namespace UI
 {
     public partial class MainForm : Form
     {
