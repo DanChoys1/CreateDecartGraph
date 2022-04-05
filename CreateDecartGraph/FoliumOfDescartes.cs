@@ -9,25 +9,25 @@ namespace Graphics
 {
     public static class FoliumOfDescartes
     {
-        public static PointF[] PointsArray(double a = 4, double xBorder = 10, double step = 0.001)
+        public static PointD[] PointsArray(double a = 4, double xBorder = 10, double step = 0.001)
         {
             if (step <= 0)
             {
                 throw new ArgumentException("Step cannot be less than or equal to zero.");
             }
 
-            List<PointF> firstQuarterChart = new List<PointF>();
-            List<PointF> secondQuarterChart = new List<PointF>();
-            List<PointF> thirdQuarterChart = new List<PointF>();
-            List<PointF> fourthQuarterChart = new List<PointF>();
+            List<PointD> firstQuarterChart = new List<PointD>();
+            List<PointD> secondQuarterChart = new List<PointD>();
+            List<PointD> thirdQuarterChart = new List<PointD>();
+            List<PointD> fourthQuarterChart = new List<PointD>();
 
             for (double angle = 0; angle < Math.PI; angle += step)
             {
                 double r = (2 * a * Math.Cos(angle) * Math.Sin(angle)) /
                     (Math.Pow(Math.Cos(angle), 3) + Math.Pow(Math.Sin(angle), 3));
 
-                float x = (float)(r * Math.Cos(angle));
-                float y = (float)(r * Math.Sin(angle));
+                double x = Math.Round(r * Math.Cos(angle), 2);
+                double y = Math.Round(r * Math.Sin(angle), 2);
 
                 if (Math.Abs(x) > xBorder)
                 {
@@ -36,33 +36,33 @@ namespace Graphics
 
                 if (x >= 0 && y >= 0)
                 {
-                    firstQuarterChart.Add(new PointF(x, y));
+                    firstQuarterChart.Add(new PointD(x, y));
                 }
                 else if(x <= 0 && y >= 0)
                 {
-                    secondQuarterChart.Add(new PointF(x, y));
+                    secondQuarterChart.Add(new PointD(x, y));
                 }         
                 else if (x >= 0 && y <= 0)
                 {
-                    fourthQuarterChart.Add(new PointF(x, y));
+                    fourthQuarterChart.Add(new PointD(x, y));
                 }
                 else if (y <= 0 && x <= 0)
                 {
-                    thirdQuarterChart.Add(new PointF(x, y));
+                    thirdQuarterChart.Add(new PointD(x, y));
                 }
             }
 
-            List<PointF> graphicPoints;
+            List<PointD> graphicPoints;
 
             if (a >= 0)
             {
-                graphicPoints = new List<PointF>(secondQuarterChart);
+                graphicPoints = new List<PointD>(secondQuarterChart);
                 graphicPoints.AddRange(firstQuarterChart);
                 graphicPoints.AddRange(fourthQuarterChart);
             }
             else
             {
-                graphicPoints = new List<PointF>(fourthQuarterChart);
+                graphicPoints = new List<PointD>(fourthQuarterChart);
                 graphicPoints.AddRange(thirdQuarterChart);
                 graphicPoints.AddRange(secondQuarterChart);
             }
