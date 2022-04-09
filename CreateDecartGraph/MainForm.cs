@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Graphics;
 using Files;
@@ -118,6 +111,10 @@ namespace UI
                 {
                     isRead = TxtFile.Read(openFileDialog.FileName, out a, out scale, out step);
                 }
+                else
+                {
+                    isRead = TxtFile.Read(openFileDialog.FileName, out a, out scale, out step);
+                }
 
                 if (isRead)
                 {
@@ -158,6 +155,10 @@ namespace UI
                 else if (filter == ".txt")
                 {
                     isWriten = TxtFile.Write(saveFileDialog.FileName, points, a, scale, step);
+                }
+                else
+                {
+                    isWriten = TxtFile.Write(saveFileDialog.FileName, points, a, scale, step); ;
                 }
 
                 if (!isWriten)

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using OfficeOpenXml.Drawing.Chart;
 using OfficeOpenXml;
 using System.IO;
 using Graphics;
@@ -79,33 +79,20 @@ namespace Files
                         worksheet.Cells[_startRowForPoints + i + 1, _yColumnIndex].Value = points[i].Y;
                     }
 
-                    /* var capitalizationChart = worksheet.Drawings.AddChart("FindingsChart", OfficeOpenXml.Drawing.Chart.eChartType.Line);
-                     capitalizationChart.Title.Text = "Декартов Граф";
-                     capitalizationChart.SetPosition(10, 0, 5, 0);
-                     capitalizationChart.SetSize(800, 400);
-                     capitalizationChart.Series.Add(worksheet.Cells[_startRowForPoints + 1, _xColumnIndex, _startRowForPoints + points.Length, _yColumnIndex]);
- */
+                    ExcelScatterChart сhart = worksheet.Drawings.AddChart("chart", eChartType.XYScatterLinesNoMarkers) as ExcelScatterChart;
 
-                    OfficeOpenXml.Drawing.Chart.ExcelLineChart lineChart = 
-                        worksheet.Drawings.AddChart("lineChart", OfficeOpenXml.Drawing.Chart.eChartType.Line) as OfficeOpenXml.Drawing.Chart.ExcelLineChart;
+                    сhart.Title.Text = "Декартов лист";
 
-                    lineChart.Title.Text = "LineChart Example";
+                    ExcelRange range1 = worksheet.Cells[_startRowForPoints + 1, _xColumnIndex, 
+                                                 _startRowForPoints + points.Length, _xColumnIndex];
+                    ExcelRange range2 = worksheet.Cells[_startRowForPoints + 1, _yColumnIndex,
+                                                 _startRowForPoints + points.Length, _yColumnIndex];
 
-                    var rangeLabel = worksheet.Cells["A1:A1"];
-                    var range1 = worksheet.Cells[_startRowForPoints + 1, _xColumnIndex];
-                    var range2 = worksheet.Cells[_startRowForPoints + 100, _yColumnIndex];
+                    сhart.Series.Add(range1, range2);
+                    сhart.Series[0].Header = "Декартов лист";
 
-                    lineChart.Series.Add(range1, rangeLabel);
-                    lineChart.Series.Add(range2, rangeLabel);
-
-                    /*lineChart.Series[0].Header = worksheet.Cells["A2"].Value.ToString();
-                    lineChart.Series[1].Header = worksheet.Cells["A3"].Value.ToString();*/
-                    
-                    //lineChart.Legend.Position = OfficeOpenXml.Drawing.Chart.eLegendPosition.Right;
-                    
-                    lineChart.SetSize(600, 300);
-                    lineChart.SetPosition(20, 20, 20, 20);
-
+                    сhart.SetSize(1000, 500);
+                    сhart.SetPosition(5, 20, 10, 20);
 
                     FileInfo fi = new FileInfo(path);
                     excelPackage.SaveAs(fi);
